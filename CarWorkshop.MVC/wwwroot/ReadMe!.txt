@@ -1,0 +1,1 @@
+﻿//Aktualizacja warsztatów - nie przechodzi Encodename
