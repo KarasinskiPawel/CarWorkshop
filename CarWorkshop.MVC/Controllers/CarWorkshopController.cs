@@ -6,6 +6,7 @@ using CarWorkshop.Application.Commands.Querrys.GetCarWorkshopByEncodedName;
 using CarWorkshop.Application.Commands.UpdateCarWorkshop;
 using CarWorkshop.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarWorkshop.MVC.Controllers
@@ -26,11 +27,6 @@ namespace CarWorkshop.MVC.Controllers
             return View(carWorkshop);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         [Route("CarWorkshop/{encodedName}/Details")]
         public async Task<IActionResult> Details(string encodedName)
         {
@@ -39,7 +35,19 @@ namespace CarWorkshop.MVC.Controllers
             return View(dto);
         }
 
+        [Authorize(Roles = "Owner")]
+        public ActionResult Create()
+        {
+            //if(!User.IsInRole("Owner"))
+            //{
+            //    return RedirectToAction("NoAccess", "Home");
+            //}
+
+            return View();
+        }
+
         [HttpPost]
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Create(CreateCarWorkshopCommand command)
         {
             if (!ModelState.IsValid)
@@ -56,6 +64,11 @@ namespace CarWorkshop.MVC.Controllers
         public async Task<IActionResult> Edit(string encodedName)
         {
             var dto = await _mediator.Send(new GetCarWorkshopByEncodedNameQuery(encodedName));
+
+            if(!dto.IsEditable)
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
 
             EditCarWorkshopCommand model = _mapper.Map<EditCarWorkshopCommand>(dto);
 

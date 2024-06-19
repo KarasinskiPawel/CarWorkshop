@@ -18,5 +18,6 @@ namespace CarWorkshop.Application.CarWorkshop
         public string? PostalCode { get; set; }
 
         public string? EncodeName { get; set; }
+        public bool IsEditable { get; set; }
     }
 }
