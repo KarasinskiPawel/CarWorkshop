@@ -14,11 +14,14 @@ namespace CarWorkshop.Domain.Entities
         public string? Description { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public CarWorkshopContactDetails ContactDetails { get; set; } = default!;
-        public string EncodeName { get; set; } = default!;
         public string About { get; set; } = default!;
 
         public string? CreatedById { get; set; }
         public IdentityUser? CreatedBy { get; set; }
+
+        public string EncodeName { get; set; } = default!;
+
+        public List<CarWorkshopService> Services { get; set; } = new();
         public void SetEncodeName() => EncodeName = Name.ToLower().Replace(" ", "-");
 
     }

@@ -16,6 +16,7 @@ namespace CarWorkshop.Infrastructure.Persistance
             
         }
         public DbSet<CarWorkshop.Domain.Entities.CarWorkshop> CarWorkshops { get; set; }
+        public DbSet<CarWorkshop.Domain.Entities.CarWorkshopService> Services{ get; set; }
 
         //Prymitywna wersja połączenia do bazy danych.
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,6 +32,11 @@ namespace CarWorkshop.Infrastructure.Persistance
 
             modelBuilder.Entity<Domain.Entities.CarWorkshop>()
                 .OwnsOne(a => a.ContactDetails);
+
+            modelBuilder.Entity<Domain.Entities.CarWorkshop>()
+                .HasMany(a => a.Services)
+                .WithOne(a => a.CarWorkshop)
+                .HasForeignKey(a => a.CarWorkshopId);
         }
     }
 }

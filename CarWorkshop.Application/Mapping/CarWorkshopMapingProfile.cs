@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarWorkshop.Application.ApplicationUser;
 using CarWorkshop.Application.CarWorkshop;
+using CarWorkshop.Application.CarWorkshopService;
 using CarWorkshop.Application.Commands.UpdateCarWorkshop;
 using CarWorkshop.Domain.Entities;
 using System;
@@ -35,6 +36,9 @@ namespace CarWorkshop.Application.Mapping
                 .ForMember(dto => dto.PhoneNumber, opt => opt.MapFrom(src => src.ContactDetails.PhoneNumber));
 
             CreateMap<CarWorkshopDto, EditCarWorkshopCommand>();
+
+            CreateMap<CarWorkshopServiceDto, Domain.Entities.CarWorkshopService>()
+                .ReverseMap();
         }
     }
 }
