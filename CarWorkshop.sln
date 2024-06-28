@@ -5,11 +5,19 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWorkshop.MVC", "CarWorkshop.MVC\CarWorkshop.MVC.csproj", "{CE8E2601-9CD8-4C3F-B548-576F547B8976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.Application", "CarWorkshop.Application\CarWorkshop.Application.csproj", "{47F42D6B-E1BA-44A3-904A-AE9C9FC739FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWorkshop.Application", "CarWorkshop.Application\CarWorkshop.Application.csproj", "{47F42D6B-E1BA-44A3-904A-AE9C9FC739FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.Domain", "CarWorkshop.Domain\CarWorkshop.Domain.csproj", "{AA51A075-A8E1-4BDC-B2CA-5C1C8A91F5DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWorkshop.Domain", "CarWorkshop.Domain\CarWorkshop.Domain.csproj", "{AA51A075-A8E1-4BDC-B2CA-5C1C8A91F5DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.Infrastructure", "CarWorkshop.Infrastructure\CarWorkshop.Infrastructure.csproj", "{A7B6C83C-B5A7-44EF-8B90-A5F78A146F2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWorkshop.Infrastructure", "CarWorkshop.Infrastructure\CarWorkshop.Infrastructure.csproj", "{A7B6C83C-B5A7-44EF-8B90-A5F78A146F2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWorkshop.DomainTests", "CarWorkshop.DomainTests\CarWorkshop.DomainTests.csproj", "{6DE4A7D9-8E34-4FFE-938F-FFF7274829CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWorkshop.ApplicationTests", "CarWorkshop.ApplicationTests\CarWorkshop.ApplicationTests.csproj", "{D765DA3E-FB16-4C15-B6E4-1865E1317E13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C0686832-B68E-45BB-9D17-D3B1A6B5B3D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.MVCTests", "CarWorkshop.MVCTests\CarWorkshop.MVCTests.csproj", "{BA8E670A-CABB-4E22-960E-6DB7BB189B00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +41,26 @@ Global
 		{A7B6C83C-B5A7-44EF-8B90-A5F78A146F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B6C83C-B5A7-44EF-8B90-A5F78A146F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B6C83C-B5A7-44EF-8B90-A5F78A146F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE4A7D9-8E34-4FFE-938F-FFF7274829CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE4A7D9-8E34-4FFE-938F-FFF7274829CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE4A7D9-8E34-4FFE-938F-FFF7274829CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE4A7D9-8E34-4FFE-938F-FFF7274829CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D765DA3E-FB16-4C15-B6E4-1865E1317E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D765DA3E-FB16-4C15-B6E4-1865E1317E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D765DA3E-FB16-4C15-B6E4-1865E1317E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D765DA3E-FB16-4C15-B6E4-1865E1317E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8E670A-CABB-4E22-960E-6DB7BB189B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8E670A-CABB-4E22-960E-6DB7BB189B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8E670A-CABB-4E22-960E-6DB7BB189B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8E670A-CABB-4E22-960E-6DB7BB189B00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6DE4A7D9-8E34-4FFE-938F-FFF7274829CF} = {C0686832-B68E-45BB-9D17-D3B1A6B5B3D1}
+		{D765DA3E-FB16-4C15-B6E4-1865E1317E13} = {C0686832-B68E-45BB-9D17-D3B1A6B5B3D1}
+		{BA8E670A-CABB-4E22-960E-6DB7BB189B00} = {C0686832-B68E-45BB-9D17-D3B1A6B5B3D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97200AC3-310C-40EF-8E55-46B93457B694}

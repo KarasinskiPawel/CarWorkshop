@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWorkshop.Application.Commands.Querrys.GetAllCarWorkshops
+namespace CarWorkshop.Application.CarWorkshop.Commands.Querrys.GetAllCarWorkshops
 {
     public class GetAllCarWorkshopsQuerry : IRequest<IEnumerable<CarWorkshopDto>>
     {

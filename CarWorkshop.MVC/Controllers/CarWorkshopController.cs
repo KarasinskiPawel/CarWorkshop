@@ -1,16 +1,19 @@
 ﻿using AutoMapper;
 using CarWorkshop.Application.CarWorkshop;
-using CarWorkshop.Application.Commands.CreateCarWorkshop;
-using CarWorkshop.Application.Commands.Querrys.GetAllCarWorkshops;
-using CarWorkshop.Application.Commands.Querrys.GetCarWorkshopByEncodedName;
-using CarWorkshop.Application.Commands.UpdateCarWorkshop;
+using CarWorkshop.Application.CarWorkshopService.Commands;
+using CarWorkshop.Application.CarWorkshopService.Queries;
 using CarWorkshop.Domain.Entities;
 using CarWorkshop.MVC.Extensions;
 using CarWorkshop.MVC.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkshop;
+using CarWorkshop.Application.CarWorkshop.Commands.EditCarWorkshop;
+using CarWorkshop.Application.CarWorkshop.Commands.Querrys.GetCarWorkshopByEncodedName;
+using CarWorkshop.Application.CarWorkshop.Commands.Querrys.GetAllCarWorkshops;
 
 namespace CarWorkshop.MVC.Controllers
 {
@@ -92,6 +95,31 @@ namespace CarWorkshop.MVC.Controllers
             await _mediator.Send(command);
 
             return RedirectToAction(nameof(Index)); // To do refactor
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Owner")]
+        [Route("CarWorkshop/CarWorkshopService")]
+        public async Task<IActionResult> CreateCarWorkshopService(CreateCarWorkshopServiceCommand command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _mediator.Send(command);
+
+            return Ok(); // To do refactor
+        }
+
+        [HttpGet]
+        //[Route("CarWorkshop/{encodedName}/CarWorkshopService")]
+        [Route("CarWorkshop/{encodedName}/CarWorkshopService")]
+        public async Task<IActionResult> CarWorkshopService([FromRoute]string encodedName)
+        {
+            var data = await _mediator.Send(new GetCarWorkshopServicesQuery() { EncodedName = encodedName });
+
+            return Ok(data);
         }
     }
 }

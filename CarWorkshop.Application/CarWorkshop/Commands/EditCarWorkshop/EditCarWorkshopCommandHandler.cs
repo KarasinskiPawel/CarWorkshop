@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWorkshop.Application.Commands.UpdateCarWorkshop
+namespace CarWorkshop.Application.CarWorkshop.Commands.EditCarWorkshop
 {
     public class EditCarWorkshopCommandHandler : IRequestHandler<EditCarWorkshopCommand>
     {
@@ -19,7 +19,7 @@ namespace CarWorkshop.Application.Commands.UpdateCarWorkshop
         public EditCarWorkshopCommandHandler(ICarWorkshopRepository carWorkshopRepository, IMapper mapper, IUserContext userContext)
         {
             _carWorkshopRepository = carWorkshopRepository;
-            _mapper = mapper;  
+            _mapper = mapper;
             _userContext = userContext;
         }
         public async Task<Unit> Handle(EditCarWorkshopCommand request, CancellationToken cancellationToken)

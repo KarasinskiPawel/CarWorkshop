@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CarWorkshop.Application.ApplicationUser;
-using CarWorkshop.Application.Commands.CreateCarWorkshop;
+using CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkshop;
 using CarWorkshop.Application.Mapping;
 using FluentValidation;
 using FluentValidation.AspNetCore;

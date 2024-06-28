@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWorkshop.Application.Commands.Querrys.GetCarWorkshopByEncodedName
+namespace CarWorkshop.Application.CarWorkshop.Commands.Querrys.GetCarWorkshopByEncodedName
 {
-    public class GetCarWorkshopByEncodeNameQueryHandler :  IRequestHandler<GetCarWorkshopByEncodedNameQuery, CarWorkshopDto>
+    public class GetCarWorkshopByEncodeNameQueryHandler : IRequestHandler<GetCarWorkshopByEncodedNameQuery, CarWorkshopDto>
     {
         private readonly ICarWorkshopRepository _carWorkshopRepository;
         private readonly IMapper _mapper;

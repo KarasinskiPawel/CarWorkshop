@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWorkshop.Application.Commands.CreateCarWorkshop
+namespace CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkshop
 {
     public class CreateCarWorkshopCommandHandler : IRequestHandler<CreateCarWorkshopCommand>
     {
@@ -30,7 +30,7 @@ namespace CarWorkshop.Application.Commands.CreateCarWorkshop
         public async Task<Unit> Handle(CreateCarWorkshopCommand request, CancellationToken cancellationToken)
         {
             var currentUser = _userContext.GetCurrentUser();
-            if(currentUser != null && !currentUser.IsInRole("Owner"))
+            if (currentUser != null && !currentUser.IsInRole("Owner"))
             {
                 return Unit.Value;
             }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWorkshop.Application.Commands.Querrys.GetCarWorkshopByEncodedName
+namespace CarWorkshop.Application.CarWorkshop.Commands.Querrys.GetCarWorkshopByEncodedName
 {
     public class GetCarWorkshopByEncodedNameQuery : IRequest<CarWorkshopDto>
     {
